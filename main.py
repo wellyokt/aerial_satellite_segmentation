@@ -6,7 +6,7 @@ from PIL import Image
 import io
 
 app = FastAPI()
-model = load_model('models\satellite_standard_unet_100epochs_18May2024.hdf5')
+model = load_model('models/satellite_standard_unet_100epochs_18May2024.hdf5')
 
 
 def preprocess_image(image):
@@ -23,4 +23,4 @@ async def segment_image(file: UploadFile = File(...)):
     img = preprocess_image(contents)  
     prediction = model.predict(np.expand_dims(img, axis=0))  
     predicted_img = np.argmax(prediction, axis=3)[0]  
-    return predicted_img 
+    return predicted_img.tolist() 
