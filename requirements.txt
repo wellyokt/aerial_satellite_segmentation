@@ -1,14 +1,7 @@
 opencv-python==4.9.0.80
-matplotlib==3.8.4
-pandas==2.2.2
-patchify==0.2.3
-scikit-learn ==1.4.2
-segmentation_models==1.0.1
-tensorflow==2.16.1
+tensorflow
 keras==3.3.3
-unet==0.7.7
 opencv-python-headless==4.9.0.80
 keras-tuner==1.4.7
-openpyxl==3.1.2
 fastapi==0.111.0
 uvicorn==0.29.0
