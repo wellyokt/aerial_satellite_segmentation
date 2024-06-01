@@ -1,13 +1,14 @@
 cuda-python
+tensorflow==2.16.1
 tensorrt==10.0.1
-tensorflow-gpu
+nvidia-pyindex
+nvidia-tensorrt
+pycuda
 opencv-python==4.9.0.80
 pandas==2.2.2
-tensorflow==2.16.1
 keras==3.3.3
 opencv-python-headless==4.9.0.80
 keras-tuner==1.4.7
-openpyxl==3.1.2
 fastapi==0.111.0
 uvicorn==0.29.0
 sqlalchemy
