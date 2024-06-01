@@ -1,5 +1,6 @@
-tensorflow
-tensorrt
+
+tensorrt==7.2.1
+tensorflow==1.15.3
 opencv-python==4.9.0.80
 pandas==2.2.2
 keras==3.3.3
