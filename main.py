@@ -4,6 +4,8 @@ import cv2
 import numpy as np
 from PIL import Image
 import io
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '1' 
 
 app = FastAPI()
 model = load_model('models/satellite_standard_unet_100epochs_18May2024.hdf5')
