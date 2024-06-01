@@ -1,5 +1,5 @@
 
-tensorflow[and-cuda]
+tensorflow==2.13.*
 opencv-python==4.9.0.80
 pandas==2.2.2
 keras==3.3.3
