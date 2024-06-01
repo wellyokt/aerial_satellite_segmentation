@@ -4,7 +4,7 @@ pandas==2.2.2
 patchify==0.2.3
 scikit-learn ==1.4.2
 segmentation_models==1.0.1
-tensorflow==2.16.1
+tensorflow-gpu==2.6.0
 keras==3.3.3
 unet==0.7.7
 opencv-python-headless==4.9.0.80
