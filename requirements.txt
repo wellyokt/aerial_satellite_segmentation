@@ -1,9 +1,5 @@
-cuda-python
-tensorflow==2.16.1
-tensorrt==10.0.1
-nvidia-pyindex
-nvidia-tensorrt
-pycuda
+tensorflow
+tensorrt
 opencv-python==4.9.0.80
 pandas==2.2.2
 keras==3.3.3
