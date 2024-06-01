@@ -1,6 +1,6 @@
 cuda-python
 tensorrt==10.0.1
-tensorflow-tensorrt
+tensorflow-gpu
 opencv-python==4.9.0.80
 pandas==2.2.2
 tensorflow==2.16.1
