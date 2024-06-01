@@ -1,23 +1,39 @@
-FROM python:3.10-slim
+FROM python:3.10-slim as python-base
+
+# Env variables
+ENV ENV=staging \
+    PYTHONFAULTHANDLER=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONHASHSEED=random \
+    PIP_NO_CACHE_DIR=off \
+    PIP_DISABLE_PIP_VERSION_CHECK=on \
+    PIP_DEFAULT_TIMEOUT=100 \
+    POETRY_VERSION=1.1.12 \
+    PORT=8001
+
+FROM python-base as builder-base
+# Install gcc compiler since poetry depends on gcc
+RUN apt-get update && apt-get install --no-install-recommends -y \
+    build-essential
 
 
-# Set the working directory to /app
 WORKDIR /app
+COPY . /app/
 
-# Install dependencies including libglib2.0-0 for libgthread-2.0.so.0
-# RUN apt-get update && apt-get install -y libgl1-mesa-glx libglib2.0-0
 
-# Copy the current directory contents into the container at /app
+# Install deps
+RUN pip install -r /app/requirements.txt
+
+FROM python-base as runtime
+COPY --from=builder-base /usr/local/bin /usr/local/bin
+COPY --from=builder-base /usr/local/lib/python3.10/ /usr/local/lib/python3.10/
+COPY --from=builder-base /app/ /app/
+
+WORKDIR /app
 COPY . /app
 
-# Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Set the working directory to /app/api
-WORKDIR /app/api
-
-# Make port 8000 available to the world outside this container
+# This app run in port 8001
 EXPOSE 8001
 
-# Run uvicorn server
+# Entry point to our app
 ENTRYPOINT /usr/local/bin/uvicorn main:app --host 0.0.0.0 --port $PORT
