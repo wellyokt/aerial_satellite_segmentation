@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /finalproject
+cd /aerial_satellite_segmentation
 
 source venv/bin/activate
 
