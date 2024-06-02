@@ -1,11 +1,12 @@
-
-tensorflow==2.13.*
+tensorflow==2.16.1
 opencv-python==4.9.0.80
 pandas==2.2.2
-keras==2.13.1
 opencv-python-headless==4.9.0.80
 keras-tuner==1.4.7
 fastapi==0.111.0
 uvicorn==0.29.0
 sqlalchemy
 databases
+python-multipart
+pillow
+aiosqlite
